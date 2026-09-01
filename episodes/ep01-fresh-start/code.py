@@ -1,29 +1,35 @@
-"""
-EP01 — Fresh start: connect to Alpaca (paper) and print account value.
-
-No orders are placed in this episode. It just proves the plumbing works:
-your code can authenticate and talk to the broker.
-
-Keys come from environment variables (see .env.example) — never hardcode them.
-"""
-
-import os
-
-from dotenv import load_dotenv
 from alpaca.trading.client import TradingClient
 
-load_dotenv()
+from alpaca.trading.requests import MarketOrderRequest
 
-API_KEY = os.getenv("ALPACA_API_KEY")
-SECRET_KEY = os.getenv("ALPACA_SECRET_KEY")
-PAPER = os.getenv("PAPER", "true").lower() == "true"
+from alpaca.trading.enums import OrderSide, TimeInForce
 
-if not API_KEY or not SECRET_KEY:
-    raise SystemExit("Missing keys — copy .env.example to .env and fill them in.")
+  
 
-trading_client = TradingClient(API_KEY, SECRET_KEY, paper=PAPER)
+API_KEY = "THE_KEY"
 
-account = trading_client.get_account()
-print(f"Connected (paper={PAPER}).")
-print(f"Account value: ${account.equity}")
-print(f"Buying power:  ${account.buying_power}")
+SECRET_KEY = "THE_SECRET"
+
+  
+
+trading_client = TradingClient(API_KEY, SECRET_KEY, paper=True)
+
+  
+
+order_request = MarketOrderRequest(
+
+symbol="SPY",
+
+qty=1,
+
+side=OrderSide.BUY,
+
+time_in_force=TimeInForce.DAY
+
+)
+
+  
+
+order = trading_client.submit_order(order_request)
+
+print(f"Order submitted! ID: {order.id}, Status: {order.status}")
