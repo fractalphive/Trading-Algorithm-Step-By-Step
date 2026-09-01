@@ -21,3 +21,8 @@ python code.py
 - `code.py` — the runnable checkpoint
 - `commands.md` — every command, in order
 - `memories.md` — AI session summary of what we worked on
+- `BUILD-STEPS.md` — full follow-along transcribed from the EP 1 video, with the safe (`.env`) code and the gotchas the video hits
+
+## What the video deliberately does "wrong" (so you don't copy it)
+
+The EP 1 video hardcodes the Alpaca API key/secret **directly in the code** (`API_KEY = "THE_KEY"`). That's an intentional teaching shortcut — the host calls it out as "making senior devs and cyber-security people mad." This folder's `code.py` does it the right way (keys in `.env`). Also: the video's script submits an order every time you run it, so clicking "run" repeatedly fires **many SPY orders**. See `BUILD-STEPS.md` for both the safe version and the faithful video version.
