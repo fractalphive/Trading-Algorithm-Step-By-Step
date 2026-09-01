@@ -7,6 +7,14 @@
 ![EP1 architecture diagram](ep01-architecture.svg)
 
 > Interactive version: open [`ep01-architecture.html`](ep01-architecture.html) in a browser.
+>
+> **How to open the HTML diagram (no coding needed):**
+> An `.html` file is just a web page saved on your computer. To view it:
+> 1. **File explorer** — navigate to this folder, then **double-click** `ep01-architecture.html`. It opens in your default browser.
+> 2. **Right-click** the file → *Open with* → choose any browser (Chrome, Firefox, Edge).
+> 3. **From a terminal:** `xdg-open ep01-architecture.html` (Linux) or `open ep01-architecture.html` (Mac).
+> 4. **Drag & drop** the file into an open browser window.
+> The `.svg` above is the same diagram as a static image — the HTML one just lets you pan/zoom/interact.
 
 ## What this episode builds
 
