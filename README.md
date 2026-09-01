@@ -16,7 +16,7 @@
 ## ▶️ Start here
 
 1. **Watch EP 1** (link above) — it walks a fresh machine to the first run.
-2. **[SETUP.md](SETUP.md)** — install Python, the libraries, and get Alpaca paper keys. Do this once.
+2. **[SETUP.md](SETUP.md)** — install Python, the libraries, get Alpaca paper keys, and how `.env` secrets are loaded (incl. VS Code). Do this once.
 3. **[episodes/ep01-fresh-start](episodes/ep01-fresh-start/)** — your first runnable algo.
 
 Each episode is its own self-contained folder. The repo is tagged `ep1`…`epNN`,
