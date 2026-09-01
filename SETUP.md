@@ -8,7 +8,7 @@ These are the one-time steps before any episode. Each episode folder under
 - Download from https://www.python.org/downloads/ (3.11+ recommended).
 - Verify: `python --version` (or `python3 --version`).
 
-## 2. Install the bot's libraries
+## 2. Install the algo's libraries
 
 From the repo root:
 
@@ -35,7 +35,7 @@ Each episode lives in its own folder:
 
 ```bash
 cd episodes/ep01-fresh-start
-python bot.py
+python algo.py
 ```
 
 Follow that episode's `README.md`, `commands.md`, and `chat/chat-history.md`.

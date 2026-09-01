@@ -20,8 +20,8 @@ One line per episode. Update as the series progresses.
 ## How to add an episode
 
 1. `cp -r episodes/_template episodes/epNN-slug`
-2. Build the bot; log commands to `commands.md` as you go.
-3. At episode end: save `bot.py`, export chat → `chat/chat-history.md`, fill `README.md`.
+2. Build the algo; log commands to `commands.md` as you go.
+3. At episode end: save `algo.py`, export chat → `chat/chat-history.md`, fill `README.md`.
 4. Commit: `git commit -m "epNN: <what was built>"`
 5. Tag: `git tag epNN`
 6. `git push && git push --tags`
