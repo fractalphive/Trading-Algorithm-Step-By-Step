@@ -16,7 +16,7 @@
 6. Ask a free AI for the code, paste the key/secret **directly into the code** (intentionally — a later episode fixes this), and run it.
 7. A market order for **1 share of SPY** is submitted and shows up as `accepted` in the Alpaca paper dashboard.
 
-The repo's `ep01-fresh-start` folder is the **hardened version** of that same script: it reads keys from a `.env` file instead of hardcoding them, and it only *prints the account value* (no order yet) so the first runnable checkpoint is safe. Use the repo version for anything real.
+The repo's `ep01-fresh-start` folder ships the **safe default** of that same script: it reads keys from a `.env` file instead of hardcoding them and only *prints the account value* (no order) so a curious viewer doesn't accidentally submit orders. To reproduce the video exactly (it placed a paper order for 1 SPY), use the "VIDEO version" in Step 8.
 
 > **Note on the video's approach:** in the video the AI code hardcodes the key/secret (`API_KEY = "THE_KEY"`). That's a deliberate teaching shortcut the video calls out as "making senior devs and cyber-security people mad." Never ship that. Use the safe `.env` version below (Step 7). Also note — because the video script just submits an order each time you run it, hitting "run" repeatedly fires **many SPY orders**. That's the punchline: you have a "button you can click that buys SPY over and over," not a real algo yet.
 
