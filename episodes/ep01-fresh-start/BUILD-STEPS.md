@@ -18,7 +18,7 @@
 
 The repo's `ep01-fresh-start` folder is the **hardened version** of that same script: it reads keys from a `.env` file instead of hardcoding them, and it only *prints the account value* (no order yet) so the first runnable checkpoint is safe. Use the repo version for anything real.
 
-> **Note on the video's approach:** in the video the AI code hardcodes the key/secret (`API_KEY = "THE_KEY"`). That's a deliberate teaching shortcut the host calls out as "making senior devs and cyber-security people mad." Never ship that. Use the safe `.env` version below (Step 7). Also note — because the video script just submits an order each time you run it, hitting "run" repeatedly fires **many SPY orders**. That's the punchline: you have a "button you can click that buys SPY over and over," not a real algo yet.
+> **Note on the video's approach:** in the video the AI code hardcodes the key/secret (`API_KEY = "THE_KEY"`). That's a deliberate teaching shortcut the video calls out as "making senior devs and cyber-security people mad." Never ship that. Use the safe `.env` version below (Step 7). Also note — because the video script just submits an order each time you run it, hitting "run" repeatedly fires **many SPY orders**. That's the punchline: you have a "button you can click that buys SPY over and over," not a real algo yet.
 
 ---
 
@@ -75,7 +75,7 @@ Open a **new chat** in a free AI and prompt roughly:
 
 The AI returns code. Ask for **"SDK code only"** to cut the explanations. Paste it into Obsidian first (a ```python fenced block), then into VS Code.
 
-> **The video's code hardcodes the key/secret** (`API_KEY = "THE_KEY"`). That's a deliberate teaching shortcut the host calls out as "making senior devs and cyber-security people mad." **Do not ship that.** Use the repo's safe version below (Step 7).
+> **The video's code hardcodes the key/secret** (`API_KEY = "THE_KEY"`). That's a deliberate teaching shortcut the video calls out as "making senior devs and cyber-security people mad." **Do not ship that.** Use the repo's safe version below (Step 7).
 
 ### 7. Run it — SAFE version (from the repo checkpoint)
 The repo's `code.py` reads keys from a `.env` file and only prints account value (no order). This is the version to actually keep:
@@ -141,4 +141,4 @@ If you want to reproduce exactly what the video did (a real paper order), the ra
 | AI session notes | `episodes/ep01-fresh-start/memories.md` |
 | This walkthrough | `episodes/ep01-fresh-start/BUILD-STEPS.md` |
 
-Next: the host says he's got ~10 episodes planned for the series and will "see you in the next video" — no specifics on EP 2 in this episode.
+Next: the video says there are ~10 episodes planned for the series and signs off with "see you in the next video" — no specifics on EP 2 in this episode.
