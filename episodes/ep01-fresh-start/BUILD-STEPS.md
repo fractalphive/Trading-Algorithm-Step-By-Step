@@ -4,19 +4,19 @@
 **Repo checkpoint:** [`episodes/ep01-fresh-start`](https://github.com/fractalphive/Trading-Algorithm-Step-By-Step/tree/main/episodes/ep01-fresh-start) on `fractalphive/Trading-Algorithm-Step-By-Step` (tag `ep1`)
 **Raw video transcript:** the full EP1 transcript lives in the Obsidian vault at `Frac5/DCA-Algo/Ep 1/transcript.md` (not in this repo). The video's hardcoded-keys code is in the Obsidian note `Frac5/DCA-Algo/Ep 1/python code.md`.
 
-> This is the episode where we go from a **blank virtual machine** (no Python, no VS Code, nothing) to a Python file that connects to Alpaca and submits a paper order for 1 share of SPY. It is the "shitty foundation" — by design. Each later episode replaces a bad habit (hardcoded keys → `.env`, manual button click → scheduled, single order → DCA logic, etc.).
+> This is the episode where you go from a **blank virtual machine** (no Python, no VS Code, nothing) to a Python file that connects to Alpaca and submits a paper order for 1 share of SPY. It is the "shitty foundation" — by design. Each later episode replaces a bad habit (hardcoded keys → `.env`, manual button click → scheduled, single order → DCA logic, etc.).
 
-## What we actually built in EP 1
+## What you actually build in EP 1
 
-1. A fresh Linux VM with nothing installed.
-2. Installed **Python** and **VS Code**.
-3. Made a **virtual environment** (isolated box so we don't pollute the system).
-4. Installed the **Alpaca Python SDK** (`alpaca-py`) inside that environment.
-5. Opened a **paper trading** account at Alpaca and generated an API key + secret.
-6. Asked a free AI for the code, pasted the key/secret **directly into the code** (intentionally — we fix this in a later episode), and ran it.
-7. A market order for **1 share of SPY** was submitted and showed up as `accepted` in the Alpaca paper dashboard.
+1. Start with a fresh Linux VM that has nothing installed.
+2. Install **Python** and **VS Code**.
+3. Make a **virtual environment** (an isolated box so you don't pollute the system).
+4. Install the **Alpaca Python SDK** (`alpaca-py`) inside that environment.
+5. Open a **paper trading** account at Alpaca and generate an API key + secret.
+6. Ask a free AI for the code, paste the key/secret **directly into the code** (intentionally — a later episode fixes this), and run it.
+7. A market order for **1 share of SPY** is submitted and shows up as `accepted` in the Alpaca paper dashboard.
 
-The repo's `ep01-fresh-start` folder is the **hardened version** of that same script: it reads keys from a `.env` file instead of hardcoding them, and it only *prints the account value* (no order yet) so the first runnable checkpoint is safe. Follow the repo version for anything real.
+The repo's `ep01-fresh-start` folder is the **hardened version** of that same script: it reads keys from a `.env` file instead of hardcoding them, and it only *prints the account value* (no order yet) so the first runnable checkpoint is safe. Use the repo version for anything real.
 
 > **Note on the video's approach:** in the video the AI code hardcodes the key/secret (`API_KEY = "THE_KEY"`). That's a deliberate teaching shortcut the host calls out as "making senior devs and cyber-security people mad." Never ship that. Use the safe `.env` version below (Step 7). Also note — because the video script just submits an order each time you run it, hitting "run" repeatedly fires **many SPY orders**. That's the punchline: you have a "button you can click that buys SPY over and over," not a real algo yet.
 
@@ -25,7 +25,7 @@ The repo's `ep01-fresh-start` folder is the **hardened version** of that same sc
 ## Step-by-step (mirrors the video order)
 
 ### 0. Open a terminal
-In VS Code: `File → New Terminal` (or `` Ctrl+` ``). The shortcut shown in the video is `` Ctrl+Shift+` `` — he fumbles it and uses the menu. Paste with `Ctrl+Shift+V` (or right-click → Paste). Clear the screen anytime with `clear`.
+In VS Code: `File → New Terminal` (or `` Ctrl+` ``). The video uses `` Ctrl+Shift+` `` — if that doesn't open it, use the menu. Paste with `Ctrl+Shift+V` (or right-click → Paste). Clear the screen anytime with `clear`.
 
 ### 1. Install Python (Linux/Ubuntu)
 ```bash
@@ -34,10 +34,10 @@ sudo apt install python3 python3-pip python3-venv
 ```
 Verify:
 ```bash
-python3 --version    # he saw Python 3.12.3
+python3 --version    # you'll see something like Python 3.12.3
 pip3 --version
 ```
-> He notes: tell the AI **your operating system** — it changes the commands. He's on Linux.
+> Tell the AI your operating system — it changes the commands. The video is on Linux.
 
 ### 2. Install VS Code
 - **Linux (snap):** `sudo snap install code --classic`
@@ -52,8 +52,8 @@ mkdir -p ~/Documents/DCA && cd ~/Documents/DCA   # or: cd your-project-folder
 python3 -m venv myenv        # creates a folder "myenv" = the isolated box
 source myenv/bin/activate     # activates it — your prompt now shows (myenv)
 ```
-> Why bother: a venv is a little box inside your project so installed packages don't touch the rest of your computer. Delete the folder and it's all gone. He whiteboards this at ~32:00.
-> Note: the AI's command was `cd your_project_folder` — that's a placeholder, not a real folder. Don't copy it literally; you're already in your folder.
+> Why bother: a venv is a little box inside your project so installed packages don't touch the rest of your computer. Delete the folder and it's all gone. The video whiteboards this at ~32:00.
+> Note: when the AI says `cd your_project_folder`, that's a placeholder — not a real folder. Don't paste it literally; you're already in your folder.
 
 ### 4. Install the Alpaca SDK (inside the venv)
 Make sure the venv is active (you see `(myenv)`), then:
@@ -61,21 +61,21 @@ Make sure the venv is active (you see `(myenv)`), then:
 pip install alpaca-py
 pip show alpaca-py     # verify it installed
 ```
-> The video calls it "Alpaca SPY" / "SDK" — it's the official `alpaca-py` package. If you skip the venv, `pip install` fails with *"externally managed environment"* (he hits this at ~29:25).
+> The video calls it "Alpaca SPY" / "SDK" — it's the official `alpaca-py` package. If you skip the venv, `pip install` fails with *"externally managed environment"* (the video hits this at ~29:25).
 
 ### 5. Open an Alpaca paper account & get keys
 1. Go to [app.alpaca.markets](https://app.alpaca.markets) → sign up (free).
-2. Create a **paper** account (fake money — good for learning). He explains paper vs real at ~12:00: orders still route through Alpaca's systems, just with simulated cash.
+2. Create a **paper** account (fake money — good for learning). The video explains paper vs real at ~12:00: orders still route through Alpaca's systems, just with simulated cash.
 3. Generate a new API **key + secret** under the paper account.
-4. **Save the key and secret in Obsidian / a password note immediately** — once the screen closes you can't see the secret again; you'd have to regenerate. (He stores his in a note called `api key secret`.)
+4. **Save the key and secret in Obsidian / a password note immediately** — once the screen closes you can't see the secret again; you'd have to regenerate. Store it in a note called `api key secret`.
 
 ### 6. Get the code from the AI
-He opens a **new chat** in a free AI and prompts roughly:
+Open a **new chat** in a free AI and prompt roughly:
 > "I'm using the Alpaca SDK/API to build an algo in Python. I want the algo to connect to Alpaca's API and submit an order to purchase one share of SPY. I'll add my credentials in the code. Here's the URL for Alpaca's API: `<endpoint from Alpaca home page>`."
 
-The AI returns code. He asks for **"SDK code only"** to cut the explanations. He pastes it into Obsidian first (a ```python fenced block), then into VS Code.
+The AI returns code. Ask for **"SDK code only"** to cut the explanations. Paste it into Obsidian first (a ```python fenced block), then into VS Code.
 
-> **The video's code hardcodes the key/secret** (`API_KEY = "THE_KEY"`). That's a deliberate teaching shortcut he calls out as "making senior devs and cyber-security people mad." **Do not ship that.** Use the repo's safe version below (Step 7).
+> **The video's code hardcodes the key/secret** (`API_KEY = "THE_KEY"`). That's a deliberate teaching shortcut the host calls out as "making senior devs and cyber-security people mad." **Do not ship that.** Use the repo's safe version below (Step 7).
 
 ### 7. Run it — SAFE version (from the repo checkpoint)
 The repo's `code.py` reads keys from a `.env` file and only prints account value (no order). This is the version to actually keep:
@@ -117,13 +117,13 @@ python code.py
 ### 8. Run it — the VIDEO version (places the order)
 If you want to reproduce exactly what the video did (a real paper order), the raw code from the transcript is in the Obsidian note `Frac5/DCA-Algo/Ep 1/python code.md` (hardcoded keys). **Only run that against a paper account, never real money.** Result on screen: `Order submitted! ID: … Status: accepted`, and the order appears in the Alpaca paper dashboard under *Orders* with source `access key`.
 
-> He demonstrates you can click "run" repeatedly and fire many SPY orders — that's the punchline: you now have a "button you can click that buys SPY over and over." Not an algo yet, just the foundation.
+> You can click "run" repeatedly and fire many SPY orders — that's the punchline: you now have a "button you can click that buys SPY over and over." Not an algo yet, just the foundation.
 
 ---
 
 ## Things the video calls out (don't skip)
 
-- **Give the AI your OS** every time — commands differ.
+- **Tell the AI your OS** every time — commands differ.
 - **Use Obsidian** (or any notes app) to store: AI session summaries ("give me a summary in markdown of what I asked you today"), the Python code, and your API key/secret. Free AIs have no memory; your notes are the memory.
 - **`cd your_project_folder` is a placeholder** — don't paste it raw.
 - **"externally managed environment" error** = you forgot to activate (or create) the venv before `pip install`.
