@@ -141,4 +141,4 @@ If you want to reproduce exactly what the video did (a real paper order), the ra
 | AI session notes | `episodes/ep01-fresh-start/memories.md` |
 | This walkthrough | `episodes/ep01-fresh-start/BUILD-STEPS.md` |
 
-Next: EP 2 turns "buy 1 SPY" into "$50 worth of SPY" (dollars → shares) and schedules it.
+Next: the host says he's got ~10 episodes planned for the series and will "see you in the next video" — no specifics on EP 2 in this episode.
