@@ -2,6 +2,12 @@
 
 **Video:** [How To Automate Your Trading With Zero Skills FOR FREE — EP 1](https://www.youtube.com/watch?v=LxnP1T3Ep0U)
 
+## 🏗️ IT infrastructure (from the video)
+
+![EP1 architecture diagram](ep01-architecture.svg)
+
+> Interactive version: open [`ep01-architecture.html`](ep01-architecture.html) in a browser.
+
 ## What this episode builds
 
 A brand-new machine to the first runnable code: it connects to Alpaca (paper)
@@ -20,7 +26,7 @@ safe version and the faithful video version (which submits the order).
 
 The video's final code connects to Alpaca (paper) and submits a market order
 for 1 share of SPY. To run the safe default in this folder after completing
-[SETUP.md](../../SETUP.md):
+[SETUP.md](SETUP.md):
 
 ```bash
 python code.py
