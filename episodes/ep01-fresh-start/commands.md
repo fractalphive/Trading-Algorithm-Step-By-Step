@@ -72,5 +72,5 @@ cp .env.example .env
 
 # Run the algo (from this folder)
 cd episodes/ep01-fresh-start
-python algo.py
+python code.py
 ```

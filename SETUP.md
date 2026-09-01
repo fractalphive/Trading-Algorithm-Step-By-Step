@@ -35,10 +35,10 @@ Each episode lives in its own folder:
 
 ```bash
 cd episodes/ep01-fresh-start
-python algo.py
+python code.py
 ```
 
-Follow that episode's `README.md`, `commands.md`, and `chat/chat-history.md`.
+Follow that episode's `README.md`, `commands.md`, and `memories.md`.
 
 ## Jump to any episode
 
