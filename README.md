@@ -41,7 +41,9 @@ If someone's promising you millions, they're selling you something. I'm showing 
 
 ## 🗺️ The series
 
-The full roadmap and per-episode status live in **[series-notes.md](series-notes.md)**.
+Each episode lives in its own folder under `episodes/` (`README.md`, `code.py`,
+`commands.md`, `memories.md`). The repo is tagged `ep1`…`epNN` so you can jump to
+any checkpoint with `git checkout epNN`.
 
 ---
 
